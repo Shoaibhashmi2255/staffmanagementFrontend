@@ -1,0 +1,212 @@
+<div class="container py-5">
+
+  <!-- Buttons -->
+  <div class="d-flex flex-column align-items-end" style="position: absolute; top: 20px; right: 20px;">
+    <button class="btn btn-primary mb-2" (click)="refreshForm()">Refresh</button>
+    <button class="btn btn-success mb-2" (click)="saveEmployee()">Save</button>
+    <button class="btn btn-danger" routerLink="/">List</button>
+  </div>
+
+  <form>
+    <h2 class="mb-4">Employee Profile</h2>
+
+    <div class="row">
+      <!-- Office Location -->
+      <div class="col-12 mb-3">
+        <label>Office Location</label>
+        <input type="text" class="form-control" [(ngModel)]="employeeData.officelocation" name="officelocation">
+      </div>
+
+      <!-- Employee ID -->
+      <!-- <div class="col-md-6 mb-3">
+        <label>Employee ID</label>
+        <input type="number" class="form-control" [(ngModel)]="employeeData.staffId" name="staffId">
+      </div> -->
+
+      <!-- Full Name -->
+      <div class="col-md-6 mb-3">
+        <label>Full Name</label>
+        <input type="text" class="form-control" [(ngModel)]="employeeData.fullname" name="fullname">
+      </div>
+
+      <!-- Profile Photo -->
+<div class="col-md-6 mb-3">
+  <label>Profile Photo</label>
+  <input type="file" class="form-control" (change)="onFileChange($event)">
+</div>
+
+      <!-- Email -->
+      <div class="col-md-6 mb-3">
+        <label>Email</label>
+        <input type="email" class="form-control" [(ngModel)]="employeeData.email" name="Email">
+      </div>
+
+      <!-- Phone Number -->
+      <div class="col-md-6 mb-3">
+        <label>Phone Number</label>
+        <input type="text" class="form-control" [(ngModel)]="employeeData.phoneNumber" name="PhoneNumber">
+      </div>
+
+      <!-- Address -->
+      <div class="col-md-6 mb-3">
+        <label>Address</label>
+        <input type="text" class="form-control" [(ngModel)]="employeeData.address" name="address">
+      </div>
+
+      <!-- Gender -->
+      <div class="col-md-6 mb-3">
+        <label>Gender</label>
+        <select class="form-select" [(ngModel)]="employeeData.Gender" name="Gender">
+          <option value="" disabled selected>Select Gender</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+        </select>
+      </div>
+
+      <!-- Nationality -->
+      <div class="col-md-6 mb-3">
+        <label>Nationality</label>
+        <select class="form-select" [(ngModel)]="employeeData.Nationality" name="Nationality">
+          <option value="" disabled selected>Select Nationality</option>
+          <option value="Pakistani">Pakistani</option>
+          <option value="Indian">Indian</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+
+      <!-- Date of Birth -->
+      <div class="col-md-6 mb-3">
+        <label>Date of Birth</label>
+        <input type="date" class="form-control" [(ngModel)]="employeeData.DOB" name="DOB">
+      </div>
+
+      <!-- Hire Date -->
+      <div class="col-md-6 mb-3">
+        <label>Hire Date</label>
+        <input type="date" class="form-control" [(ngModel)]="employeeData.hireDate" name="hireDate">
+      </div>
+
+      <!-- Department ID -->
+      <div class="col-md-6 mb-3">
+        <label>Department ID</label>
+        <input type="number" class="form-control" [(ngModel)]="employeeData.departmentId" name="DepartmentId">
+      </div>
+
+      <!-- Department Level -->
+      <!-- <div class="col-md-6 mb-3">
+        <label>Department Level</label>
+        <input type="number" class="form-control" [(ngModel)]="employeeData.departmentlevel" name="departmentlevel">
+      </div> -->
+
+      <!-- Designation -->
+      <div class="col-md-6 mb-3">
+        <label>Designation</label>
+        <input type="text" class="form-control" [(ngModel)]="employeeData.Designation" name="Designation">
+      </div>
+
+      <!-- Religion -->
+      <div class="col-md-6 mb-3">
+        <label>Religion</label>
+        <input type="text" class="form-control" [(ngModel)]="employeeData.Religion" name="Religion">
+      </div>
+
+      <!-- Resume -->
+      <div class="col-md-6 mb-3">
+        <label>Resume (URL or Text)</label>
+        <input type="text" class="form-control" [(ngModel)]="employeeData.resume" name="resume">
+      </div>
+
+      <!-- Job Status -->
+      <div class="col-md-6 mb-3">
+        <label>Job Status</label>
+        <input type="text" class="form-control" [(ngModel)]="employeeData.JobStatus" name="JobStatus">
+      </div>
+
+      <!-- Confirmation Date -->
+      <div class="col-md-6 mb-3">
+        <label>Confirmation Date</label>
+        <input type="date" class="form-control" [(ngModel)]="employeeData.ConfirmationDate" name="ConfirmationDate">
+      </div>
+
+      <!-- Joining Date -->
+      <div class="col-md-6 mb-3">
+        <label>Joining Date</label>
+        <input type="date" class="form-control" [(ngModel)]="employeeData.JoiningDate" name="JoiningDate">
+      </div>
+
+      <!-- Date of Leaving -->
+      <div class="col-md-6 mb-3">
+        <label>Date of Leaving</label>
+        <input type="date" class="form-control" [(ngModel)]="employeeData.dateofleaving" name="dateofleaving">
+      </div>
+
+      <!-- Salary -->
+      <div class="col-md-6 mb-3">
+        <label>Salary</label>
+        <input type="number" class="form-control" [(ngModel)]="employeeData.salary" name="salary">
+      </div>
+
+      <!-- Marital Status -->
+      <div class="col-md-6 mb-3">
+        <label>Marital Status</label>
+        <select class="form-select" [(ngModel)]="employeeData.martialstatus" name="martialstatus">
+          <option value="" disabled selected>Select Status</option>
+          <option value="Single">Single</option>
+          <option value="Married">Married</option>
+        </select>
+      </div>
+
+      <!-- Notes -->
+      <div class="col-12 mb-3">
+        <label>Notes</label>
+        <textarea class="form-control" rows="4" [(ngModel)]="employeeData.Notes" name="Notes"></textarea>
+      </div>
+
+
+
+      <!-- ID Expiry Date -->
+      <div class="col-md-6 mb-3">
+        <label>ID Expiry Date</label>
+        <input type="date" class="form-control" [(ngModel)]="employeeData.IdExpiryDate" name="IdExpiryDate">
+      </div>
+
+      <!-- Section -->
+      <div class="col-md-6 mb-3">
+        <label>Section</label>
+        <input type="text" class="form-control" [(ngModel)]="employeeData.section" name="section">
+      </div>
+
+      <!-- Level Policy -->
+      <div class="col-md-6 mb-3">
+        <label>Level Policy</label>
+        <input type="text" class="form-control" [(ngModel)]="employeeData.levelpolicy" name="levelpolicy">
+      </div>
+
+      <!-- Blood Group -->
+      <div class="col-md-6 mb-3">
+        <label>Blood Group</label>
+        <input type="text" class="form-control" [(ngModel)]="employeeData.bloodGroup" name="bloodGroup">
+      </div>
+
+      <!-- HOD (checkbox) -->
+      <!-- <div class="col-md-6 mb-3">
+        <label>Head of Department (HOD)</label>
+        <input type="checkbox" class="form-check-input ms-2" [(ngModel)]="employeeData.HOD" name="HOD">
+      </div> -->
+
+      <!-- Assist HOD (checkbox) -->
+      <!-- <div class="col-md-6 mb-3">
+        <label>Assistant HOD</label>
+        <input type="checkbox" class="form-check-input ms-2" [(ngModel)]="employeeData.AssistHOD" name="AssistHOD">
+      </div> -->
+
+      <!-- Reason -->
+      <div class="col-md-6 mb-3">
+        <label>Reason</label>
+        <input type="text" class="form-control" [(ngModel)]="employeeData.Reason" name="Reason">
+      </div>
+
+    </div>
+  </form>
+
+</div>

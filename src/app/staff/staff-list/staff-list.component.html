@@ -1,0 +1,83 @@
+<div class="container py-5">
+
+<div class="div">
+  <h2>Employee List</h2>
+
+
+  <button type="button" class="btn btn-outline-primary" routerLink="/staff-profile">Add New Employee</button>
+  <br>
+
+  <!-- Filters -->
+  <div class="row mb-3">
+    <div class="col">
+      <label>Office Location:</label>
+      <select class="form-select" [(ngModel)]="officeLocationFilter">
+        <option value="">All Locations</option>
+        <option *ngFor="let location of uniqueOfficeLocations" [value]="location">{{ location }}</option>
+      </select>
+    </div>
+
+    <div class="col">
+      <label>Department:</label>
+      <select class="form-select" [(ngModel)]="departmentIdFilter">
+        <option value="">All Departments</option>
+        <option *ngFor="let department of uniqueDepartments" [value]="department.departmentName">{{ department.name }}</option>
+      </select>
+    </div>
+
+    <div class="col">
+      <label>Gender:</label>
+      <select class="form-select" [(ngModel)]="genderFilter">
+        <option value="">All Genders</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <button class="btn btn-primary" (click)="applyFilters()">Search</button>
+  </div>
+
+<!-- <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+    aria-expanded="false">
+    Office/Location
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+    <li *ngFor="let employee of employees">
+      <option>{{employee.officelocation}}</option>
+    </li>
+  </ul>
+</div> -->
+
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>Employee Id</th>
+      <th>Name</th>
+      <th>Father Name</th>
+      <th>Picture</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let employee of employees">
+      <td>{{ employee.staffId}}</td>
+      <td>{{ employee?.fullname }}</td>
+      <td>{{ employee.fathername }}</td>
+      <td>{{ employee?.photo }}</td>
+      <td>
+        <div>
+          <button type="button" class="btn btn-success" [routerLink]="['/staff-profile', employee.staffId]">Edit</button>
+          <button type="button" class="btn btn-primary">View</button>
+        </div>
+
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</div>

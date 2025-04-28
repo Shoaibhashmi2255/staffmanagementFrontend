@@ -1,0 +1,24 @@
+<div class="container py-5">
+
+    <!-- Buttons -->
+    <div class="d-flex flex-column align-items-end" style="position: absolute; top: 20px; right: 20px;">
+      <button class="btn btn-primary mb-2" (click)="refreshForm()">Refresh</button>
+      <button class="btn btn-success mb-2" (click)="savedepartment()">Save</button>
+      <button class="btn btn-danger" routerLink="/">List</button>
+    </div>
+  
+    <form>
+      <h2 class="mb-4">Employee Profile</h2>
+  
+      <div class="row">
+      
+        <!-- Reason -->
+        <div class="col-md-6 mb-3">
+          <label>Department Name</label>
+          <input type="text" class="form-control" [(ngModel)]="departmentData.departmentname" name="Reason">
+        </div>
+  
+      </div>
+    </form>
+  
+  </div>

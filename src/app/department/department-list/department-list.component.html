@@ -1,0 +1,32 @@
+<div class="container py-5">
+
+    <div class="div">
+      <h2>Department List</h2>
+    
+    
+      <button type="button" class="btn btn-outline-primary" routerLink="/department/profile">Add New Department</button>
+      <br>
+    
+    
+    
+
+      <table border="1">
+        <thead>
+          <tr>
+            <th>Employee Id</th>
+            <th>Name</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let department of departments">
+            <td>{{ department.departmentID}}</td>
+            <td>{{ department?.departmentName }}</td>
+
+          </tr>
+        </tbody>
+      </table>
+      
+    
+    </div>
+    </div>
